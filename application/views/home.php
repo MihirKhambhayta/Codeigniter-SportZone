@@ -74,7 +74,7 @@
       </nav>
 
       <section class="hero">
-        <h1>Welcome to SportZone</h1>
+        <h1>Welcome to SportZone </h1>
         <p>Place your bets on your favorite sports with competitive odds, live updates, and exclusive bonuses.</p>
       </section>
 

@@ -62,22 +62,21 @@
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
 
                     <div class="form-group>
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" name="password" required pattern="\d{6}" title="Password must be exactly 6 digits">
                     </div>
-
-
+                    
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required >
+                        <input type="text" class="form-control" id="phone" name="phone" required pattern="\d{10}" title="Password must be exactly 10 digits">
                     </div>
 
                     <div class="form-group">
-                    <label>Both Date</label>
+                         <label  for="date">Both Date</label>
                          <input type="date" class="form-control" id="date" name="date"  required>
                     </div>
 

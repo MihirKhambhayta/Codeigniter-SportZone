@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Users List</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+        
         <style>
             body {
                 background-color: #f8f9fa;
-                padding-top: 50px;
+                padding-top: 20px;
             }
             .container {
-                max-width: 1000px;
+                max-width: 90%;
             }
             .table {
                 background-color: #fff;
@@ -44,6 +44,11 @@
 
         <div class="container">
             <h1>Users List</h1>
+
+            
+             <div class=" mb-3 search-box">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or city">
+            </div>
             
             <div class="row mb-4">
                 <div class="col-md-10">

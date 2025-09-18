@@ -109,14 +109,14 @@
                 <input type="email" name="email" value="<?= set_value('email'); ?>" placeholder="Enter your Email Address">
 
                 <label>Password</label>
-                <input type="password" name="password" "required pattern="\d{6}" title="Password must be exactly 6 digits" placeholder="Enter your Password">
+                <input type="password" name="password" " pattern="\d{6}" title="Password must be exactly 6 digits" placeholder="Enter your Password" required>
 
                 <label>Phone</label>
                 <input type="text" name="phone" value="<?= set_value('phone'); ?>"  "required pattern="\d{10}" title="Phone must be exactly 10 digits"  placeholder="10-digit number">
 
                 <label>Both Date</label>
                 <input type="date" name="date" value="<?= set_value('date'); ?>" required>
-                
+
                 <div class="form-group">
                     <label for="city">City:</label>
                     <select class="form-control" id="city" name="city" required>

@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$config['base_url'] =  'http://localhost/sport';
+$config['base_url'] =  'http://localhost/Codeigniter-SportZone';
 /*
 |--------------------------------------------------------------------------
 | Index File

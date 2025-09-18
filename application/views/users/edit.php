@@ -67,6 +67,11 @@
                             <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($user->phone); ?>"required pattern="\d{10}" title="Phone must be exactly 10 digits">
                          </div>
 
+                          <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" class="form-control" id="date" name="date" value="<?php echo htmlspecialchars($user->date); ?>"required>
+                         </div>
+
                        
 
                          <div class="form-group">

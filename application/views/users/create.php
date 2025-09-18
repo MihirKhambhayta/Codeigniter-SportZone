@@ -76,6 +76,11 @@
                         <input type="text" class="form-control" id="phone" name="phone" required >
                     </div>
 
+                    <div class="form-group">
+                    <label>Both Date</label>
+                         <input type="date" class="form-control" id="date" name="date"  required>
+                    </div>
+
                    
                     <div class="form-group">
                         <label for="city">City:</label>

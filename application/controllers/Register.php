@@ -32,6 +32,7 @@
                     'email'     => $this->input->post('email'),
                     'password'  => md5($this->input->post('password')),
                     'phone'     => $this->input->post('phone'),
+                    'date'      => $this->input->post('date'),
                     'city'      => $this->input->post('city'),
                 );
 

@@ -29,6 +29,7 @@ class Users extends CI_Controller
             'email'     => $this->input->post('email'),
             'password'  => $this->input->post('password'),
             'phone'     => $this->input->post('phone'),
+            'date'     => $this->input->post('date'),
             'city'      => $this->input->post('city')
         ];
         $this->User_model->insert_user($data);
@@ -49,6 +50,7 @@ class Users extends CI_Controller
             'lastname'  => $this->input->post('lastname'),
             'email'     => $this->input->post('email'),
             'phone'     => $this->input->post('phone'),
+            'date'      => $this->input->post('date'),
             'city'      => $this->input->post('city'),
         ];
         $this->User_model->update_user($id, $data);

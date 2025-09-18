@@ -45,15 +45,22 @@
         <div class="container">
             <h1>Users List</h1>
             
-            <div class="mb-3 search-box">
-                <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or city">
-            </div>
-            
-            <div class="mb-3">
-                <a href="<?php echo site_url('users/create'); ?>" class="btn btn-primary">Create New User</a>
+            <div class="row mb-4">
+                <div class="col-md-10">
+                    <a href="<?php echo site_url('users/create'); ?>" class="btn btn-primary">Create New User</a>
+                </div>
+                <div class="col-md-2">
+                    <select id="rowsSelect" class="form-select">
+                        <option value="all">Show All</option>
+                        <option value="5">Show 5</option>
+                        <option value="10">Show 10</option>
+                        <option value="50">Show 50</option>
+                        
+                    </select>
+                </div>
             </div>
 
-          
+            <p><strong>Total <span id="userCount">0</span> user(s)</strong></p>
             <table class="table table-striped table-bordered" id="usersTable">
                 <thead>
                     <tr>
@@ -62,6 +69,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Both Date</th>
                         <th>City</th>
                         <th>Actions</th>
                     </tr>
@@ -74,6 +82,7 @@
                             <td><?php echo htmlspecialchars($user->lastname); ?></td>
                             <td><?php echo htmlspecialchars($user->email); ?></td>
                             <td><?php echo htmlspecialchars($user->phone); ?></td>
+                            <td><?php echo htmlspecialchars($user->date); ?></td>
                             <td><?php echo htmlspecialchars($user->city); ?></td>
                             <td>
                                 <a href="<?php echo site_url('users/edit/'.$user->id); ?>" class="btn btn-warning btn-action">Edit</a>
@@ -92,13 +101,39 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 
          <script>
-            $(document).ready(function() {
-                $("#searchInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $("#usersTable tbody tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            $(document).ready(function () {
+                const $rows = $('#usersTable tbody tr');
+
+                function filterTable() {
+                    const searchValue = $("#searchInput").val().toLowerCase();
+                    const limit = $("#rowsSelect").val();
+                    let count = 0;
+
+                    $rows.each(function (index) {
+                        const rowText = $(this).text().toLowerCase();
+                        const matchesSearch = rowText.indexOf(searchValue) > -1;
+
+                        if (matchesSearch) {
+                            count++;
+                            if (limit === 'all' || count <= parseInt(limit)) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        } else {
+                            $(this).hide();
+                        }
                     });
-                });
+
+                    // ✅ Update total visible user count
+                    $("#userCount").text(count);
+                }
+
+                $("#searchInput").on("keyup", filterTable);
+                $("#rowsSelect").on("change", filterTable);
+
+                // Initial display
+                filterTable();
             });
         </script>
     </body>

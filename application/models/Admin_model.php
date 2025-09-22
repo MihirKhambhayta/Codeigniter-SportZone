@@ -5,15 +5,13 @@ class Admin_model extends CI_Model {
         // If using md5 (not recommended in real apps, use password_hash)
         $this->load->database(); 
         $this->db->where('username', $username);
-        $this->db->where('password', md5($password)); 
+        $this->db->where('password', $password); 
        
 
         $query = $this->db->get('admins');
 
         return $query->row(); // returns user or null
     }
-   
-
-
     
+   
 }

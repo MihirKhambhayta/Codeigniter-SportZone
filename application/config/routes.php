@@ -68,4 +68,11 @@ $route['contact/submit'] = 'contact/submit';
 
 
 
+ $route['admin/admin_user'] = 'admin/admin_user';
+ $route['admin/admin_user/create'] = 'admin/admin_create';  // Shows form
+ $route['admin/admin_user/store']  = 'admin/admin_store';
+ $route['admin/admin_user/edit/(:num)'] = 'admin/admin_edit/$1';
+ $route['admin/admin_user/update/(:num)'] = 'admin/admin_update/$1';
+ $route['admin/admin_user/delete/(:num)'] = 'admin/admin_delete/$1';
+
 

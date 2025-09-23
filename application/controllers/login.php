@@ -27,7 +27,7 @@ class Login extends CI_Controller
 
         if ($user['password'] === $password) {
             // ✅ Mark user as logged in
-            $this->User_model->set_logged_in($user['id'], 1);
+            $this->User_model->set_logged_in($user['id'], 'active');
 
             // ✅ Set session
             $this->session->set_userdata('user', [
@@ -40,19 +40,6 @@ class Login extends CI_Controller
             $this->session->set_flashdata('error', 'Password incorrect.');
             redirect('login');
         }
-    }
-
-    // Logout user
-    public function logout() {
-        $user = $this->session->userdata('user');
-        if (!empty($user['id'])) {
-            // ✅ Mark user as logged out
-            $this->User_model->set_logged_in($user['id'], 0);
-        }
-
-        $this->session->unset_userdata('user');
-        $this->session->sess_destroy();
-        redirect('login');
     }
 
     // Forgot password view

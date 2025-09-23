@@ -43,16 +43,16 @@
     <body>
 
         <div class="container">
-            <h1>Users List</h1>
+            <h1>Admin Users List</h1>
 
             
              <div class=" mb-3 search-box">
-                <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or city">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search admin">
             </div>
             
             <div class="row mb-4">
                 <div class="col-md-10">
-                    <a href="<?php echo site_url('admin/users/create'); ?>" class="btn btn-primary">Create New User</a>
+                    <a href="<?php echo site_url('admin/admin_user/create'); ?>" class="btn btn-primary">Create New User</a>
                 </div>
                 <div class="col-md-2">
                     <select id="rowsSelect" class="form-select">
@@ -70,30 +70,21 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Both Date</th>
-                        <th>City</th>
-                        <th>active</th>
-                        <th>Actions</th>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($user->id); ?></td>
-                            <td><?php echo htmlspecialchars($user->firstname); ?></td>
-                            <td><?php echo htmlspecialchars($user->lastname); ?></td>
-                            <td><?php echo htmlspecialchars($user->email); ?></td>
-                            <td><?php echo htmlspecialchars($user->phone); ?></td>
-                            <td><?php echo htmlspecialchars($user->date); ?></td>
-                            <td><?php echo htmlspecialchars($user->city); ?></td>
-                            <td><?php echo htmlspecialchars($user->is_logged_in	); ?></td>
+                           <td><?php echo htmlspecialchars($user->id); ?></td>
+                            <td><?php echo htmlspecialchars($user->username); ?></td>
+                            <td><?php echo htmlspecialchars($user->password); ?></td>
+                           
                             <td>
-                                <a href="<?php echo site_url('admin/users/edit/'.$user->id); ?>" class="btn btn-warning btn-action">Edit</a>
-                                <a href="<?php echo site_url('admin/users/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                <a href="<?php echo site_url('admin/admin_user/edit/'.$user->id); ?>" class="btn btn-warning btn-action">Edit</a>
+                                <a href="<?php echo site_url('admin/admin_user/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

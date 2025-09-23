@@ -25,7 +25,8 @@ class Admin extends CI_Controller {
 
         $admin = $this->Admin_model->validate_admin($username, $password);
         if ($admin) {
-             
+             $admin_id = $admin->id;
+             $this->Admin_model->set_logged_in($admin_id, 1);
            
             $this->session->set_userdata([
                 'admin_logged_in' => true,
@@ -44,14 +45,25 @@ class Admin extends CI_Controller {
    
     $data['logged_in_users'] = $this->User_model->count_logged_in_users();//asssss
     $data['total_users'] = $this->User_model->count_users();  // ✅ Pull user count
+    $data['total_admins'] = $this->Admin_model->count_admins();
+    $data['logged_in_admins']  = $this->Admin_model->count_logged_in_admins();
     $this->load->view('admin/dashboard', $data);  // ✅ Pass to view
-     
-}
-   
+    
+    }
+
+ 
 
     public function logout() {
-        $this->session->sess_destroy();
-        redirect('admin');
+    $admin_id = $this->session->userdata('admin_id');
+    if ($admin_id) {
+        $this->Admin_model->set_logged_in($admin_id, 0);  // <-- Add this line to mark logged out
+    }
+
+    $this->session->unset_userdata('admin_logged_in');
+    $this->session->unset_userdata('admin_id');
+    $this->session->unset_userdata('admin_username');
+    $this->session->sess_destroy();
+    redirect('admin');
     }
 
     private function _check_login() {
@@ -81,7 +93,7 @@ class Admin extends CI_Controller {
             'firstname' => $this->input->post('firstname'),
             'lastname'  => $this->input->post('lastname'),
             'email'     => $this->input->post('email'),
-            'password'  => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'password'  => md5($this->input->post('password')),
             'phone'     => $this->input->post('phone'),
             'date'      => $this->input->post('date'),
             'city'      => $this->input->post('city')
@@ -115,4 +127,55 @@ class Admin extends CI_Controller {
         $this->User_model->delete_user($id);
         redirect('admin/users');
     }
+
+    // -------------------------
+    // Admin USER MANAGEMENT
+    // -------------------------
+
+
+    public function admin_user() {
+
+    $this->_check_login();
+        $data['users'] = $this->Admin_model->get_all_admin_user();
+    $this->load->view('admin/admin_user/admin_index', $data);  
+     }
+        public function admin_create() {
+        $this->_check_login(); // optional
+        $this->load->view('admin/admin_user/admin_create');
+    }
+       
+    public function admin_store() {
+        $this->_check_login();
+        $data = [
+            'username' => $this->input->post('username'),
+            'password'  => $this->input->post('password'),
+        
+        ];
+        $this->Admin_model->insert_user($data);
+        redirect('admin/admin_user');
+    }
+
+    public function admin_edit($id) {
+        $this->_check_login();
+        $data['user'] = $this->Admin_model->get_user($id);
+        $this->load->view('admin/admin_user/admin_edit', $data);
+    }
+
+    public function admin_update($id) {
+        $this->_check_login();
+        $data = [
+            'username' => $this->input->post('username'),
+            'password'  => $this->input->post('password'),
+            
+        ];
+        $this->Admin_model->update_user($id, $data);
+        redirect('admin/admin_user');
+    }
+
+    public function admin_delete($id) {
+        $this->_check_login();
+        $this->Admin_model->delete_user($id);
+        redirect('admin/admin_user');
+    }
+
 }

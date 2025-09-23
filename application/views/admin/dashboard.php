@@ -73,14 +73,16 @@
     <div class="sidebar">
         <h3 style="text-align: center;">Admin Panel</h3>
         <a href="<?= base_url('admin/dashboard') ?>">Dashboard</a>
-        <a href="<?= base_url('admin/users/index') ?>">User</a>
+        <a href="<?= base_url('admin/users/index') ?>">👥 manage users</a>
+        <a href="<?= base_url('admin/admin_user/admin_index') ?>">👤 Admin User</a>
         <a href="<?= base_url('admin/logout') ?>">Logout</a>
+        
     </div>
 
     <div class="main-content">
         <div class="header">
             Welcome, <?= $this->session->userdata('admin_username') ?>
-        </div>
+        </div>  
 
         <h2>Dashboard</h2>
         <p>This is your admin dashboard. From here, you can manage users, view stats, and more.</p>
@@ -94,7 +96,7 @@
           
             <div class="dashboard">
               <div class="user">
-                <h2>👤 User Detail</h2>
+                <h2>👥 User Detail</h2>
                   <div class="cards">
                     <div class="card">
                       <h3>Total User</h3>
@@ -104,6 +106,32 @@
                     <div class="card">
                       <h3></h3>
                       <p><p>Logged In Users: <strong><?= $logged_in_users ?></strong></p></p>
+                      
+                    </div>
+                    <div class="card">
+                      <h3></h3>
+                      <p></p>
+                      <p></p>
+                  </div>
+              </div>
+            </div>
+         </div>
+        </section>
+
+         <section class="content">
+          <div class="intro">
+            <div class="dashboard">
+              <div class="user">
+                <h2>👤 Admin User Detail</h2>
+                  <div class="cards">
+                    <div class="card">
+                      <h3>Total User</h3>
+                      <p><h4> <strong><?php echo $total_admins; ?></strong></h4></p>
+                      
+                    </div>
+                    <div class="card">
+                      <h3></h3>
+                      <p><p>Logged In Users: <strong><?= $logged_in_admins ?></strong></p></p>
                       
                     </div>
                     <div class="card">

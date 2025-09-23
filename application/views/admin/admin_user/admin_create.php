@@ -46,23 +46,13 @@
     </head>
     <body>
             <div class="container">
-                <h1>Create New User</h1>
-                <form action="<?php echo site_url('admin/users/store'); ?>" method="POST">
+                <h1>Create New Admin User</h1>
+                <form action="<?php echo site_url('admin/admin_user/store'); ?>" method="POST">
                     
                     
                     <div class="form-group">
-                        <label for="firstname">First Name:</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastname">Last Name:</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                        <label for="username">Admin Name:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
 
                     <div class="form-group>
@@ -70,32 +60,12 @@
                         <input type="password" class="form-control" id="password" name="password" required pattern="\d{6}" title="Password must be exactly 6 digits">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required pattern="\d{10}" title="Password must be exactly 10 digits">
-                    </div>
-
-                    <div class="form-group">
-                         <label  for="date">Both Date</label>
-                         <input type="date" class="form-control" id="date" name="date"  required>
-                    </div>
-
+                 
+                    
                    
-                    <div class="form-group">
-                        <label for="city">City:</label>
-                        <select class="form-control" id="city" name="city" required>
-                            <option value="">-- Select City --</option>
-                            <option value="Ahmedabad">Ahmedabad</option>
-                            <option value="Surat">Surat</option>
-                            <option value="Rajkot">Rajkot</option>
-                            <option value="Vadodara">Vadodara</option>
-                            <option value="Bhavnagar">Bhavnagar</option>
-                            
-                        </select>
-                    </div>
                 
                     <button type="submit" class="btn btn-primary">Save User</button>
-                    <a href="<?php echo site_url('admin/users/index'); ?>" class="btn btn-danger">Cancel</a>
+                    <a href="<?php echo site_url('admin/admin_user/admin_index'); ?>" class="btn btn-danger">Cancel</a>
                 </form>
             </div>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

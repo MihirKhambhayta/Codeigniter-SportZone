@@ -1,22 +1,23 @@
 <?php
-    defined('BASEPATH') OR exit('No direct script access allowed');
-
-    class Logout extends CI_Controller 
+class Logout extends CI_Controller 
+{
+    public function __construct() 
     {
-
-        public function __construct() 
-        {
-            parent::__construct();
-            $this->load->library('session');
-            $this->load->helper('url');
-        }
-
-        public function index() 
-        {
-
-        $this->session->sess_destroy();
-        redirect('home'); 
-        
-        }
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->helper('url');
+        $this->load->model('User_model');
     }
-?>
+
+    public function index() 
+    {
+        $user = $this->session->userdata('user');
+        if (!empty($user['id'])) {
+            $this->User_model->set_logged_in($user['id'], 'inactive');
+        }
+
+        $this->session->unset_userdata('user');
+        $this->session->sess_destroy();
+        redirect('home');
+    }
+}

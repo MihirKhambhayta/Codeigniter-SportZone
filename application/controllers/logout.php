@@ -13,7 +13,7 @@ class Logout extends CI_Controller
     {
         $user = $this->session->userdata('user');
         if (!empty($user['id'])) {
-            $this->User_model->set_logged_in($user['id'], 'inactive');
+            $this->User_model->set_logged_in($user['id'], 0);
         }
 
         $this->session->unset_userdata('user');

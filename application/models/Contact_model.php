@@ -14,5 +14,15 @@ class Contact_model extends CI_Model
     {
         return $this->db->insert('contact_messages', $data);
     }
+
+    public function get_all_message() {
+    return $this->db->get('contact_messages')->result();  // Use objects
+    }
+
+     public function get_message($id) 
+    {
+        return $this->db->get_where('contact_messages', ['id' => $id])->row();
+    }
+
 }
 ?>

@@ -27,7 +27,7 @@ class Login extends CI_Controller
 
         if ($user['password'] === $password) {
             // ✅ Mark user as logged in
-            $this->User_model->set_logged_in($user['id'], 'active');
+            $this->User_model->set_logged_in($user['id'], 1);
 
             // ✅ Set session
             $this->session->set_userdata('user', [

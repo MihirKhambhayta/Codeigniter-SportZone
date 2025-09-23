@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,6 +76,9 @@
         <a href="<?= base_url('admin/dashboard') ?>">Dashboard</a>
         <a href="<?= base_url('admin/users/index') ?>">👥 manage users</a>
         <a href="<?= base_url('admin/admin_user/admin_index') ?>">👤 Admin User</a>
+        <a href="<?= base_url('admin/message/admin_message') ?>">Message</a>
+        
+
         <a href="<?= base_url('admin/logout') ?>">Logout</a>
         
     </div>
@@ -101,16 +105,14 @@
                     <div class="card">
                       <h3>Total User</h3>
                       <p><h4> <strong><?php echo $total_users; ?></strong></h4></p>
-                      
+                     </div>
+                    <div class="card">
+                      <h3>Logged In Users</h3>
+                      <p><h4><strong><?= $logged_in_users ?></strong></p></4>
                     </div>
                     <div class="card">
                       <h3></h3>
-                      <p><p>Logged In Users: <strong><?= $logged_in_users ?></strong></p></p>
-                      
-                    </div>
-                    <div class="card">
-                      <h3></h3>
-                      <p></p>
+                      <p>Loading....</p>
                       <p></p>
                   </div>
               </div>
@@ -127,16 +129,14 @@
                     <div class="card">
                       <h3>Total User</h3>
                       <p><h4> <strong><?php echo $total_admins; ?></strong></h4></p>
-                      
                     </div>
                     <div class="card">
-                      <h3></h3>
-                      <p><p>Logged In Users: <strong><?= $logged_in_admins ?></strong></p></p>
-                      
+                      <h3>Logged In Admin Users</h3>
+                      <p><h3><strong><?= $logged_in_admins ?></strong></h3></p> 
                     </div>
                     <div class="card">
-                      <h3></h3>
-                      <p></p>
+                      <h3>Message</h3>
+                      <p>aaa</p>
                       <p></p>
                   </div>
               </div>

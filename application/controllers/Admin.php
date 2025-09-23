@@ -50,9 +50,7 @@ class Admin extends CI_Controller {
     $this->load->view('admin/dashboard', $data);  // ✅ Pass to view
     
     }
-
  
-
     public function logout() {
     $admin_id = $this->session->userdata('admin_id');
     if ($admin_id) {
@@ -178,4 +176,21 @@ class Admin extends CI_Controller {
         redirect('admin/admin_user');
     }
 
+     // -------------------------
+        // Message MANAGEMENT
+    // -------------------------
+
+    
+    public function message() {
+        $this->_check_login();
+         $this->load->model('Contact_model');
+        $data['message'] = $this->Contact_model->get_all_message();
+
+        // ✅ Make sure to pass $data to the view
+        $this->load->view('admin/message/admin_message', $data);
+    }
+  
 }
+
+
+

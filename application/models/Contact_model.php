@@ -24,5 +24,16 @@ class Contact_model extends CI_Model
         return $this->db->get_where('contact_messages', ['id' => $id])->row();
     }
 
+        public function delete_user($id) 
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete('contact_messages');
+    }
+
+     public function count_message() {
+    return $this->db->count_all('contact_messages');
+    }
+
+
 }
 ?>

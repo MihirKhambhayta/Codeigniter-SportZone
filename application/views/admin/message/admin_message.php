@@ -73,7 +73,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($message as $user): ?>
+                    <?php foreach ($users as $user): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($user->id); ?></td>
                             <td><?php echo htmlspecialchars($user->name); ?></td>
@@ -81,8 +81,8 @@
                             <td><?php echo htmlspecialchars($user->message); ?></td>
                             <td><?php echo htmlspecialchars($user->submitted_at); ?></td>
                             <td>
-                                <a href="<?php echo site_url('admin/edit/'.$user->id); ?>" class="btn btn-warning btn-action">Edit</a>
-                                <a href="<?php echo site_url('admin/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                <a href="<?php echo site_url('admin/message/message_reply_form/'.$user->id); ?>" class="btn btn-warning btn-action">Reply</a>
+                                <a href="<?php echo site_url('admin/message/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

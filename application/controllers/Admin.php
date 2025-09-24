@@ -5,10 +5,9 @@ class Admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(['Admin_model', 'User_model']);
+        $this->load->model(['Admin_model', 'User_model','Contact_model']);
         $this->load->helper(['url', 'form']);
         $this->load->library(['session']);
-
 
     }
 
@@ -43,10 +42,11 @@ class Admin extends CI_Controller {
     public function dashboard() {
     $this->_check_login(); // ✅ Reuse your login check function
    
-    $data['logged_in_users'] = $this->User_model->count_logged_in_users();//asssss
     $data['total_users'] = $this->User_model->count_users();  // ✅ Pull user count
+    $data['logged_in_users'] = $this->User_model->count_logged_in_users();//asssss
     $data['total_admins'] = $this->Admin_model->count_admins();
     $data['logged_in_admins']  = $this->Admin_model->count_logged_in_admins();
+    $data['total_message'] = $this->Contact_model->count_message();
     $this->load->view('admin/dashboard', $data);  // ✅ Pass to view
     
     }
@@ -133,9 +133,9 @@ class Admin extends CI_Controller {
 
     public function admin_user() {
 
-    $this->_check_login();
+        $this->_check_login();
         $data['users'] = $this->Admin_model->get_all_admin_user();
-    $this->load->view('admin/admin_user/admin_index', $data);  
+        $this->load->view('admin/admin_user/admin_index', $data);  
      }
         public function admin_create() {
         $this->_check_login(); // optional
@@ -183,14 +183,21 @@ class Admin extends CI_Controller {
     
     public function message() {
         $this->_check_login();
-         $this->load->model('Contact_model');
-        $data['message'] = $this->Contact_model->get_all_message();
-
-        // ✅ Make sure to pass $data to the view
+      
+        $data['users'] = $this->Contact_model->get_all_message();
         $this->load->view('admin/message/admin_message', $data);
     }
-  
+     public function message_delete($id) {
+        $this->_check_login();
+        $this->Contact_model->delete_user($id);
+        redirect('admin/message/admin_message');
+    }
+
 }
+
+
+
+
 
 
 

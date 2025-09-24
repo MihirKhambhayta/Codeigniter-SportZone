@@ -53,7 +53,14 @@ $route['default_controller'] = 'home';  // Set the default controller to 'users'
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// Custom routes for Users
+
+$route['contact'] = 'contact/index';
+$route['contact/submit'] = 'contact/submit';
+
+$route['logout'] = 'logout/index';
+
+    //Admin Side routes//
+ // Custom routes for  Users Fomr
 $route['admin/users'] = 'admin/users/index';
 $route['admin/users/create'] = 'admin/user_create';
 $route['admin/users/store'] = 'admin/user_store';
@@ -61,18 +68,21 @@ $route['admin/users/edit/(:num)'] = 'admin/user_edit/$1';
 $route['admin/users/update/(:num)'] = 'admin/user_update/$1';
 $route['admin/users/delete/(:num)'] = 'admin/user_delete/$1';
 
-$route['contact'] = 'contact/index';
-$route['contact/submit'] = 'contact/submit';
+    // Custom routes for  Admin Users Fomr
+$route['admin/admin_user'] = 'admin/admin_user';
+$route['admin/admin_user/create'] = 'admin/admin_create';  // Shows form
+$route['admin/admin_user/store']  = 'admin/admin_store';
+$route['admin/admin_user/edit/(:num)'] = 'admin/admin_edit/$1';
+$route['admin/admin_user/update/(:num)'] = 'admin/admin_update/$1';
+$route['admin/admin_user/delete/(:num)'] = 'admin/admin_delete/$1';
 
- $route['logout'] = 'logout/index';
+    // Custom routes for  Admin side message Fomr//
+
+   
+$route['admin/message/delete/(:num)']='admin/message';
+$route['admin/message/delete/(:num)'] = 'admin/message_delete/$1';
 
 
-
- $route['admin/admin_user'] = 'admin/admin_user';
- $route['admin/admin_user/create'] = 'admin/admin_create';  // Shows form
- $route['admin/admin_user/store']  = 'admin/admin_store';
- $route['admin/admin_user/edit/(:num)'] = 'admin/admin_edit/$1';
- $route['admin/admin_user/update/(:num)'] = 'admin/admin_update/$1';
- $route['admin/admin_user/delete/(:num)'] = 'admin/admin_delete/$1';
-
-
+$route['admin/message/message_reply_form/(:num)'] = 'admin/message_reply_form/$1';
+$route['admin/message/send_reply'] = 'admin/send_reply';
+$route['admin/message/send_auto_reply'] = 'admin/send_auto_reply';

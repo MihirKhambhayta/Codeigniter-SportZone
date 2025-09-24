@@ -132,11 +132,11 @@
                     </div>
                     <div class="card">
                       <h3>Logged In Admin Users</h3>
-                      <p><h3><strong><?= $logged_in_admins ?></strong></h3></p> 
+                      <p><h4><strong><?= $logged_in_admins ?></strong></h4></p> 
                     </div>
                     <div class="card">
-                      <h3>Message</h3>
-                      <p>aaa</p>
+                      <h3>Total Message</h3>
+                      <p><h4> <strong><?php echo $total_message; ?></strong></h4></p></p>
                       <p></p>
                   </div>
               </div>

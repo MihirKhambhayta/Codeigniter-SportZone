@@ -33,11 +33,7 @@ class User_model extends CI_Model
     }
 
     // Count all users (optional)
-    public function set_logged_in($id, $status) {
-    return $this->db
-        ->where('id', $id)
-        ->update('users', ['is_logged_in' => $status]);
-    }
+    
 
     public function count_logged_in_users() {
         return $this->db
@@ -50,11 +46,23 @@ class User_model extends CI_Model
         return $this->db->get_where('users', ['username' => $username])->row();
     }
     
-
     public function delete_user($id) 
     {
         $this->db->where('id', $id);
         return $this->db->delete('users');
     }
+
+    public function get_user_by_id($id)
+    {
+        return $this->db->get_where('users', ['id' => $id])->row_array();
+    }
+
+    public function set_logged_in($id, $status)
+    {
+        $this->db->where('id', $id);
+        
+        return $this->db->update('users', ['is_logged_in' => $status]);
+    }
+
 }
 ?>

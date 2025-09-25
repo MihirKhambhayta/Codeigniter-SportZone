@@ -68,6 +68,7 @@ $route['admin/users/edit/(:num)'] = 'admin/user_edit/$1';
 $route['admin/users/update/(:num)'] = 'admin/user_update/$1';
 $route['admin/users/delete/(:num)'] = 'admin/user_delete/$1';
 
+
     // Custom routes for  Admin Users Fomr
 $route['admin/admin_user'] = 'admin/admin_user';
 $route['admin/admin_user/create'] = 'admin/admin_create';  // Shows form
@@ -75,6 +76,7 @@ $route['admin/admin_user/store']  = 'admin/admin_store';
 $route['admin/admin_user/edit/(:num)'] = 'admin/admin_edit/$1';
 $route['admin/admin_user/update/(:num)'] = 'admin/admin_update/$1';
 $route['admin/admin_user/delete/(:num)'] = 'admin/admin_delete/$1';
+
 
     // Custom routes for  Admin side message Fomr//
 

@@ -8,7 +8,6 @@ class Admin extends CI_Controller {
         $this->load->model(['Admin_model', 'User_model','Contact_model']);
         $this->load->helper(['url', 'form']);
         $this->load->library(['session']);
-
     }
 
     public function index() {
@@ -48,9 +47,7 @@ class Admin extends CI_Controller {
     $data['logged_in_admins']  = $this->Admin_model->count_logged_in_admins();
     $data['total_message'] = $this->Contact_model->count_message();
     $this->load->view('admin/dashboard', $data);  // ✅ Pass to view
-    
     }
- 
     public function logout() {
     $admin_id = $this->session->userdata('admin_id');
     if ($admin_id) {
@@ -125,6 +122,9 @@ class Admin extends CI_Controller {
         $this->User_model->delete_user($id);
         redirect('admin/users');
     }
+    ///-----------------//
+
+
 
     // -------------------------
     // Admin USER MANAGEMENT
@@ -192,6 +192,7 @@ class Admin extends CI_Controller {
         $this->Contact_model->delete_user($id);
         redirect('admin/message/admin_message');
     }
+
 
 }
 

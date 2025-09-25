@@ -3,17 +3,15 @@ class Login extends CI_Controller
 {
     public function __construct() {
         parent::__construct();
-        $this->load->model(['Login_model', 'User_model']); // Added User_model
+        $this->load->model(['Login_model', 'User_model']);
         $this->load->helper(['form', 'url']);
         $this->load->library('session');
     }
-    
-    // Login form
+
     public function index() {
         $this->load->view('login');
     }
 
-    // Process user login
     public function process() {
         $firstname = $this->input->post('firstname');
         $password = md5($this->input->post('password'));
@@ -35,19 +33,24 @@ class Login extends CI_Controller
                 'firstname' => $user['firstname']
             ]);
 
-            redirect('dashboard'); // User dashboard
+            redirect('dashboard');
         } else {
-            $this->session->set_flashdata('error', 'Password incorrect.');
+            $this->session->set_flashdata('error', 'password incorrect.');
             redirect('login');
         }
     }
 
-    // Forgot password view
+        public function logout() {
+            $this->session->sess_destroy();
+            redirect('home');
+        }
+
+         // Forgot password view
     public function forgot_password() {
         $this->load->view('forgot_password');
     }
 
-    // Reset password logic
+        // Reset password logic
     public function reset_password() {
         $firstname = $this->input->post('firstname');
         $new_password = md5($this->input->post('new_password'));
@@ -63,5 +66,7 @@ class Login extends CI_Controller
         $this->session->set_flashdata('success', 'Password reset successfully. Please login.');
         redirect('login');
     }
+
+
+
 }
-?>

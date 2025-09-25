@@ -47,7 +47,7 @@
 
             <div class="row mb-4">
               <div class=" mb-3 search-box">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or city">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or date">
              </div>
                 <div class="col-md-2">
                     <select id="rowsSelect" class="form-select">
@@ -82,7 +82,7 @@
                             <td><?php echo htmlspecialchars($user->submitted_at); ?></td>
                             <td>
                                 <a href="<?php echo site_url('admin/message/message_reply_form/'.$user->id); ?>" class="btn btn-warning btn-action">Reply</a>
-                                <a href="<?php echo site_url('admin/message/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                <a href="<?php echo site_url('admin/message/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this Message?');">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

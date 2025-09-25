@@ -4,12 +4,8 @@
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SportZone</title>
+    <title>Home-SportZone</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    
-
-
     
    <style>
       * { 
@@ -149,7 +145,7 @@
     <header id = "mainHeader">
       <h1>Sport Zone</h1>
         <nav>
-          <a href="<?php echo site_url('users/index'); ?>">User Management</a>
+          <a href="<?php echo site_url('dashboard'); ?>">Home</a>
           <a href="<?php echo site_url('teams'); ?>">Teams</a>   
           <a href="<?php echo site_url('contact'); ?>">Contact</a>
           <a href="<?php echo site_url('help'); ?>">Help</a>
@@ -221,6 +217,6 @@
                }
             });
          </script>
-      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+              <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </body>
 </html>

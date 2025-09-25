@@ -94,6 +94,8 @@
                             <td>
                                 <a href="<?php echo site_url('admin/users/edit/'.$user->id); ?>" class="btn btn-warning btn-action">Edit</a>
                                 <a href="<?php echo site_url('admin/users/delete/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                <a href="<?php echo site_url('admin/users/logout_user/'.$user->id); ?>" class="btn btn-danger btn-action" onclick="return confirm('Are you sure you want to delete this user?');">Logout</a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

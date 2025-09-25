@@ -73,10 +73,10 @@
 
     <div class="sidebar">
         <h3 style="text-align: center;">Admin Panel</h3>
-        <a href="<?= base_url('admin/dashboard') ?>">Dashboard</a>
+        <a href="<?= base_url('admin/dashboard') ?>">📊 Dashboard</a>
         <a href="<?= base_url('admin/users/index') ?>">👥 manage users</a>
         <a href="<?= base_url('admin/admin_user/admin_index') ?>">👤 Admin User</a>
-        <a href="<?= base_url('admin/message/admin_message') ?>">Message</a>
+        <a href="<?= base_url('admin/message/admin_message') ?>">💬 Message</a>
         
 
         <a href="<?= base_url('admin/logout') ?>">Logout</a>

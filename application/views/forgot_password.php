@@ -85,7 +85,7 @@
 
             <form method="post" action="<?= site_url('login/reset_password') ?>">
                 <input type="text" name="firstname" placeholder="Enter your registered firstname" required>
-                <input type="password" name="new_password" placeholder="New Password" required>
+                <input type="password" name="new_password" placeholder="New Password" "required pattern="\d{6}" title="Password must be exactly 6 digits" placeholder="Enter Pasword">
                 <input type="submit" value="Reset Password">
             </form>
 

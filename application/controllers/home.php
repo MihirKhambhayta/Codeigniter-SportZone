@@ -9,12 +9,13 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
     }
 
-    public function index() 
-    {
-        
-        $this->load->view('home');
-    }
+
+    public function index() {
+    $data['logout_by_admin'] = $this->session->flashdata('logout_by_admin');
+    $this->load->view('home', $data);
+}
 }
 ?>

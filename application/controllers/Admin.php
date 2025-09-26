@@ -123,6 +123,21 @@ class Admin extends CI_Controller {
         redirect('admin/users');
     }
     ///-----------------//
+    public function logout_user($id)
+{
+    $this->_check_login(); // Your admin login check
+
+    $updated = $this->User_model->set_logged_in($id, 0);
+
+    if ($updated) {
+        $this->session->set_flashdata('success', 'User has been logged out successfully.');
+    } else {
+        $this->session->set_flashdata('error', 'Failed to log out the user.');
+    }
+
+    redirect('admin/users');
+}
+
 
 
 

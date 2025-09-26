@@ -54,7 +54,7 @@ class User_model extends CI_Model
 
     public function get_user_by_id($id)
     {
-        return $this->db->get_where('users', ['id' => $id])->row_array();
+    return $this->db->get_where('users', ['id' => $id])->row();
     }
 
     public function set_logged_in($id, $status)
@@ -63,6 +63,8 @@ class User_model extends CI_Model
         
         return $this->db->update('users', ['is_logged_in' => $status]);
     }
+
+  
 
 }
 ?>

@@ -148,6 +148,23 @@
       </nav>
     </header>
 
+      <!-- Adnin side logout -->
+      <?php if (!empty($logout_by_admin)): ?>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+          Swal.fire({
+              icon: 'info',
+              title: 'You\'ve Been Logged Out',
+              text: 'You were logged out by the administrator.',
+              confirmButtonText: 'OK'
+              }).then(() => {
+            window.location.href = '<?= site_url("login") ?>'; // Or wherever you want
+          });
+      </script>
+      <?php endif; ?>
+
+
+
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">

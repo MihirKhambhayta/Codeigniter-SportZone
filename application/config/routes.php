@@ -67,6 +67,8 @@ $route['admin/users/store'] = 'admin/user_store';
 $route['admin/users/edit/(:num)'] = 'admin/user_edit/$1';
 $route['admin/users/update/(:num)'] = 'admin/user_update/$1';
 $route['admin/users/delete/(:num)'] = 'admin/user_delete/$1';
+$route['admin/users/logout/(:num)'] = 'admin/users/logout_user/$1';
+
 
 
     // Custom routes for  Admin Users Fomr

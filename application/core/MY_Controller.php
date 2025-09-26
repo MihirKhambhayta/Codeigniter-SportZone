@@ -6,18 +6,29 @@ class MY_Controller extends CI_Controller {
         $this->load->library('session');
         $this->load->helper('url');
 
-        $user_session = $this->session->userdata('user');
+        // Check for user session
+        $user = $this->session->userdata('user');
 
-        if (!$user_session) {
+        if (!$user || !isset($user['id'])) {
+            // Not logged in
             redirect('login');
         }
 
-        $user = $this->User_model->get_user_by_id($user_session['id']);
+        $user_data = $this->User_model->get_user_by_id($user['id']);
 
-        if (!$user) {
-            // User deleted, destroy session and redirect
+        if (!$user_data) {
+            // User deleted
             $this->session->sess_destroy();
             redirect('home');
         }
+
+      
+        if ($user_data->is_logged_in == 0) {
+         // Admin forced logout
+        $this->session->set_flashdata('logout_by_admin', true);
+             $this->session->unset_userdata('user'); // remove user data
+             redirect('home');
+         }
+    
     }
 }

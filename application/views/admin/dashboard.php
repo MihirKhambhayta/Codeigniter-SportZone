@@ -18,8 +18,9 @@
             width: 220px;
             background: #2c3e50;
             color: #fff;
-            height: 100vh;
             padding-top: 20px;
+            width: auto;
+            height: auto;
         }
 
         .sidebar a {
@@ -43,6 +44,26 @@
             color: white;
             padding: 15px 20px;
             font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .admin-profile img {
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+        }
+
+        .admin-profile span {
+            margin-left: 10px;
+            font-weight: 500;
         }
 
         .user {
@@ -104,7 +125,12 @@
 
     <div class="main-content">
         <div class="header">
-            Welcome, <?= $this->session->userdata('admin_username') ?>
+            <div>Welcome, <?= $this->session->userdata('admin_username') ?></div>
+            <div class="admin-profile">
+                <img src="https://ui-avatars.com/api/?name=<?= urlencode($this->session->userdata('admin_username')) ?>&background=2980b9&color=fff&rounded=true&size=32" 
+                     alt="Admin Avatar">
+                <span><?= $this->session->userdata('admin_username') ?></span>
+            </div>
         </div>  
 
         <h2>Dashboard</h2>

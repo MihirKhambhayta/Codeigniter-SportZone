@@ -537,6 +537,7 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
+date_default_timezone_set('Asia/Kolkata'); // or your timezone
 
 
 

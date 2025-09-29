@@ -28,11 +28,14 @@
             color: #ecf0f1;
             padding: 12px 20px;
             text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .sidebar a:hover {
             background: #34495e;
-        }
+            transform: scale(1.04);       
+         }
 
         .main-content {
             flex-grow: 1;
@@ -130,7 +133,7 @@
                 <img src="https://ui-avatars.com/api/?name=<?= urlencode($this->session->userdata('admin_username')) ?>&background=2980b9&color=fff&rounded=true&size=32" 
                      alt="Admin Avatar">
                 <span><?= $this->session->userdata('admin_username') ?></span>
-            </div>
+            </div>  
         </div>  
 
         <h2>Dashboard</h2>

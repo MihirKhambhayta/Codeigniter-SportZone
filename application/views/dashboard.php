@@ -66,6 +66,7 @@
       header h1 {
       font-size: 15px;
       font-style: italic;
+      margin-right: 61%;
       }
       nav a {
       margin-left: 20px;
@@ -139,6 +140,17 @@
       .card p {
       font-size: 14px;
       }
+      .user-profile {
+      display: flex;
+      margin-left: 15px;
+      }
+      .user-profile img {
+      border-radius: 50%;
+      }
+      .user-profile:hover{
+      transform: scale(1.10);
+
+      }
     </style>
   </head>
   <body>
@@ -151,7 +163,18 @@
           <a href="<?php echo site_url('help'); ?>">Help</a>
           <a href="<?php echo site_url('logout'); ?>">Logout</a>
         </nav>
-      </header>
+         <div class="user-profile">
+            <?php 
+              $user = $this->session->userdata('user'); 
+              $name = '';
+              if (!empty($user)) {
+                $name = !empty($user['firstname']) ? $user['firstname'] : $user['lastname'];
+              }
+            ?>
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode($name) ?>&background=16a085&color=fff&rounded=true&size=36" 
+                alt="User Avatar">
+        </div>
+     </header>
 
        <section class="hero">
           <?php 

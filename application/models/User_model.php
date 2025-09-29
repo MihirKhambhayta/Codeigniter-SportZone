@@ -56,7 +56,7 @@ class User_model extends CI_Model
     {
     return $this->db->get_where('users', ['id' => $id])->row();
     }
-
+   
     public function set_logged_in($id, $status)
     {
         $this->db->where('id', $id);

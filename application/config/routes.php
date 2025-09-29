@@ -85,8 +85,3 @@ $route['admin/admin_user/delete/(:num)'] = 'admin/admin_delete/$1';
    
 $route['admin/message/delete/(:num)']='admin/message';
 $route['admin/message/delete/(:num)'] = 'admin/message_delete/$1';
-
-
-$route['admin/message/message_reply_form/(:num)'] = 'admin/message_reply_form/$1';
-$route['admin/message/send_reply'] = 'admin/send_reply';
-$route['admin/message/send_auto_reply'] = 'admin/send_auto_reply';

@@ -107,6 +107,7 @@
 
     .btn-back:hover {
         background-color: #5a6268;
+        transform: translateY(-2px); 
     }
 
     @media screen and (max-width: 768px) {
@@ -124,11 +125,8 @@
 
     </head>
     <body>
-
         <div class="container">
             <h1>Users List</h1>
-
-            
              <div class=" mb-3 search-box">
                 <input type="text" id="searchInput" class="form-control" placeholder="Search users by name, email, or city">
             </div>

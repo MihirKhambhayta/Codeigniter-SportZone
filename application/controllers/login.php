@@ -81,15 +81,17 @@ class Login extends CI_Controller
                     redirect('login/forgot_password');
                     return;
                 } else {
-                    $this->Login_model->set_otp_limit($email, $attempts + 1, $first_time);
+                      $attempts++;
+                    $this->Login_model->set_otp_limit($email, $attempts, $first_time);
                 }
             } else {
-                $this->Login_model->set_otp_limit($email, 1, $now);
+                  $attempts = 1;
+                $this->Login_model->set_otp_limit($email, $attempts, $now);
             }
         } else {
-            $this->Login_model->set_otp_limit($email, 1, $now);
             $attempts = 1;
-        }
+            $this->Login_model->set_otp_limit($email, $attempts, $now);
+            }
 
         // 3. Generate and store OTP
         $otp = rand(100000, 999999);
@@ -113,7 +115,7 @@ class Login extends CI_Controller
         $this->load->library('email');
         $this->email->initialize($config);
 
-        $this->email->from('exa.com', 'Sport Zone');
+        $this->email->from('g.com', 'Sport Zone');
         $this->email->to($email);
         $this->email->subject('Password Reset OTP - ' . $otp);
         $this->email->message("Dear Customer,\n\nYour OTP is: $otp\nDo not share this OTP with anyone.\n\nRegards,\nTeam Sport Zone");

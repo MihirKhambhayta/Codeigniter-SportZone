@@ -49,7 +49,6 @@ class Login_model extends CI_Model {
             return $this->db->insert('users', $data);
         }
     }
-
     public function clear_otp_limit($email)
     {
         return $this->db

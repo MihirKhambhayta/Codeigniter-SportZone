@@ -104,7 +104,7 @@ class Login extends CI_Controller
             'protocol'     => 'smtp',
             'smtp_host'    => 'smtp.gmail.com',
             'smtp_port'    => 587,
-            'smtp_user'    => 'exa.com',
+            'smtp_user'    => 'l.com',
             'smtp_pass'    => '',
             'mailtype'     => 'text',
             'charset'      => 'utf-8',
@@ -115,7 +115,7 @@ class Login extends CI_Controller
         $this->load->library('email');
         $this->email->initialize($config);
 
-        $this->email->from('g.com', 'Sport Zone');
+        $this->email->from('l.com', 'Sport Zone');
         $this->email->to($email);
         $this->email->subject('Password Reset OTP - ' . $otp);
         $this->email->message("Dear Customer,\n\nYour OTP is: $otp\nDo not share this OTP with anyone.\n\nRegards,\nTeam Sport Zone");

@@ -12,6 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
+            background-color: #9bddd5ff;
         }
 
         .sidebar {
@@ -70,7 +71,7 @@
         }
 
         .user {
-            background-color: #fff;
+            background-color: #faeaeaff;
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);

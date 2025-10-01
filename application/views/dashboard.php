@@ -155,7 +155,7 @@
   </head>
   <body>
     <header id = "mainHeader">
-      <h1>Sport Zone</h1>
+      <h1><a href="<?php echo site_url('dashboard'); ?>" style="text-decoration: none; color: inherit;">Sport Zone</a></h1>
         <nav>
           <a href="<?php echo site_url('dashboard'); ?>">Home</a>
           <a href="<?php echo site_url('teams'); ?>">Teams</a>   
@@ -171,7 +171,7 @@
                 $name = !empty($user['firstname']) ? $user['firstname'] : $user['lastname'];
               }
             ?>
-            <img src="https://ui-avatars.com/api/?name=<?= urlencode($name) ?>&background=16a085&color=fff&rounded=true&size=36" 
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode($name) ?>&background=16a085&color=fff&rounded=true&size=32" 
                 alt="User Avatar">
         </div>
      </header>
@@ -196,28 +196,29 @@
               <li>Welcome bonuses and in-play features</li>
             </ul>
           
-            <div class="dashboard">
-              <div class="sport-zone">
-                <h2>🏟️ Sport Zone</h2>
-                  <div class="cards">
-                    <div class="card">
-                      <h3>Live Match</h3>
-                      <p>Team A vs Team B</p>
-                      <p>Score: 2 - 1</p>
+              <div class="dashboard">
+                <div class="sport-zone">
+                  <h2>🏟️ Sport Zone</h2>
+                    <div class="cards">
+                      <div class="card">
+                        <h3>Live Match</h3>
+                        <p>Team A vs Team B</p>
+                        <p>Score: 2 - 1</p>
+                      </div>
+                      <div class="card">
+                        <h3>Upcoming Game</h3>
+                        <p>Team C vs Team D</p>
+                        <p>Date: Sep 12, 2025</p>
+                      </div>
+                      <div class="card">
+                        <h3>Top Player</h3>
+                        <p>Name: John Doe</p>
+                        <p>Goals: 12</p>
                     </div>
-                    <div class="card">
-                      <h3>Upcoming Game</h3>
-                      <p>Team C vs Team D</p>
-                      <p>Date: Sep 12, 2025</p>
-                    </div>
-                    <div class="card">
-                      <h3>Top Player</h3>
-                      <p>Name: John Doe</p>
-                      <p>Goals: 12</p>
-                  </div>
+                </div>
               </div>
             </div>
-         </div>
+          </div>
         </section>
 
         <footer class="text-center py-4 bg-dark text-light">
